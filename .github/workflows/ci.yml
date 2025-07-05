@@ -26,14 +26,14 @@ jobs:
           --health-retries 5
 
     steps:
-      # Checkout the repo
+      # Checkout the repository
       - uses: actions/checkout@v4
 
       # Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.10
+          python-version: 3.10 # ✅ Changed from 3.1 or 3.13 to supported 3.10
 
       # Cache pip dependencies
       - name: Cache pip dependencies
@@ -68,16 +68,3 @@ jobs:
       - name: Docker Build
         run: |
           docker build -t hr-onboarding-backend ./backend
-
-      # (Optional) Docker push to Docker Hub
-      # Uncomment the next step if you want to push
-      # - name: Docker Login
-      #   uses: docker/login-action@v2
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
-      #
-      # - name: Docker Push
-      #   run: |
-      #     docker tag hr-onboarding-backend your-dockerhub-username/hr-onboarding-backend:latest
-      #     docker push your-dockerhub-username/hr-onboarding-backend:latest
