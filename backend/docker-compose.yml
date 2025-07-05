@@ -1,0 +1,41 @@
+# version: "3.9"
+
+# services:
+#   backend:
+#     build: .
+#     container_name: hr_onboarding_backend
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       DATABASE_URL: postgresql://gopal:gopal@db:5432/hronboardinglanggraphdb
+#     depends_on:
+#       - db
+#     restart: always
+
+#   db:
+#     image: postgres:15
+#     container_name: hr_onboarding_db
+#     environment:
+#       POSTGRES_USER: gopal
+#       POSTGRES_PASSWORD: gopal
+#       POSTGRES_DB: hronboardinglanggraphdb
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     restart: always
+
+# volumes:
+#   postgres_data:
+
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: hr_onboarding_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://gopal:gopal@host.docker.internal:5432/hronboardinglanggraphdb
+    restart: always
