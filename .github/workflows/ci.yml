@@ -26,14 +26,15 @@ jobs:
           --health-retries 5
 
     steps:
-      # Checkout the repository
+      # Checkout the repo
       - uses: actions/checkout@v4
 
-      # Set up Python
-      - name: Set up Python
+      # Explicitly use Python 3.10 and ignore .python-version
+      - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
-          python-version: 3.10 # ✅ Changed from 3.1 or 3.13 to supported 3.10
+          python-version: 3.10
+          allow-prereleases: true
 
       # Cache pip dependencies
       - name: Cache pip dependencies
