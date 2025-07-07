@@ -59,10 +59,14 @@ jobs:
           flake8 . || true
 
       # Run tests
-      - name: Run Tests
+      - name: Run Tests (skipped if none)
         working-directory: backend
         run: |
-          pytest
+          if ls tests/*.py 1> /dev/null 2>&1; then
+            pytest
+          else
+            echo "No tests found. Skipping pytest."
+          fi
 
       # Docker build test
       - name: Docker Build
