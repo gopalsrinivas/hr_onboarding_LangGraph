@@ -16,7 +16,7 @@ RUN pip install --upgrade pip && \
 # Copy project files
 COPY . .
 
-# Expose port
+## Expose port
 EXPOSE 8000
 
 
