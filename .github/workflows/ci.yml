@@ -29,12 +29,11 @@ jobs:
       # Checkout the repo
       - uses: actions/checkout@v4
 
-      # Explicitly use Python 3.10 and ignore .python-version
+      # Set up Python 3.10
       - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
           python-version: 3.10
-          allow-prereleases: true
 
       # Cache pip dependencies
       - name: Cache pip dependencies
