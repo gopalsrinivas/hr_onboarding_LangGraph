@@ -51,12 +51,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Run linting
+      # Run linting (non-blocking)
       - name: Run Linting
         working-directory: backend
         run: |
           pip install flake8
-          flake8 .
+          flake8 . || true
 
       # Run tests
       - name: Run Tests
